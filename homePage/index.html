@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Requests</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Center content */
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh; /* Adjust to vertically center cards */
+    }
+
+    .logo {
+      width: 150px; /* Adjust size as necessary */
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header d-flex justify-content-between align-items-center px-4 py-3">
+    <!-- Admin Login Link -->
+    <a href="/Admins/login.html" class="btn btn-outline-secondary">Admin Login</a> <!-- Admin login link -->
+
+    <!-- Company Logo -->
+    <img src="logo.jpg" alt="Company Logo" class="logo"> <!-- Add your logo here -->
+  </div>
+
+  <!-- Main Content -->
+  <div class="container center-content text-center">
+    <h1>Welcome to the Company Request Portal</h1>
+    <h4>Your One-Stop Solution for Requests and Feedback</h4> <!-- Subtitle -->
+
+    <div class="row justify-content-center mt-5">
+      <!-- Product Purchase Requests Card -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="achat.jpg" class="card-img-top" alt="Product Purchase Image">
+          <div class="card-body">
+            <h5 class="card-title">Create Product Purchase Request</h5> <!-- Updated card title -->
+            <a href="/Achat/achat.html" class="btn btn-primary">Create</a> <!-- Updated button -->
+          </div>
+        </div>
+      </div>
+
+      <!-- HR Holiday/Day Off Card -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="conge.jpeg" class="card-img-top" alt="Holiday Request Image">
+          <div class="card-body">
+            <h5 class="card-title">Submit HR Holiday/Day Off</h5> <!-- Updated card title -->
+            <a href="/conge/conge.html" class="btn btn-secondary">Submit</a> <!-- Updated button -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Feedback Card -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="idea3.jpg" class="card-img-top" alt="Submit Feedback Image">
+          <div class="card-body">
+            <h5 class="card-title">Send Feedback</h5> <!-- Updated card title -->
+            <a href="/Feedback/feebback.html" class="btn btn-secondary">Send</a> <!-- Updated button -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Company Name. All rights reserved.</p> <!-- Footer text -->
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

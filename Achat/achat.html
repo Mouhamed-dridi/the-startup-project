@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Achat Request Form</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Achat Request Form</h1>
+        
+        <form id="achatForm">
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
+            </div>
+            <div class="mb-3">
+                <label for="serviceType" class="form-label">This Product is for Service</label>
+                <select class="form-select" id="serviceType" required>
+                    <option value="">Select Department</option>
+                    <option value="HR">HR</option>
+                    <option value="Finance">Finance</option>
+                    <option value="IT">IT</option>
+                    <option value="Direction">Direction</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="provider" class="form-label">Provider</label>
+                <input type="text" class="form-control" id="provider" placeholder="Enter provider name" required>
+            </div>
+            <div class="mb-3">
+                <label for="delay" class="form-label">Choose Delay (Days)</label>
+                <select class="form-select" id="delay" required>
+                    <option value="">Select Delay</option>
+                    <option value="1">1 Day</option>
+                    <option value="3">3 Days</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="After Week">After a Week</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity or Price</label>
+                <input type="text" class="form-control" id="quantity" placeholder="Enter quantity or price (e.g., 14.9000$)" required>
+            </div>
+            <div class="mb-3">
+                <label for="devisFile" class="form-label">Upload Devis File (Optional)</label>
+                <input type="file" class="form-control" id="devisFile">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('achatForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const productName = document.getElementById('productName').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const provider = document.getElementById('provider').value;
+            const delay = document.getElementById('delay').value;
+            const quantityPrice = document.getElementById('quantity').value;
+            const devisFile = document.getElementById('devisFile').files[0] ? document.getElementById('devisFile').files[0].name : '';
+
+            // Create achat request object
+            const achatRequest = {
+                productName,
+                serviceType,
+                provider,
+                delay,
+                quantityPrice,
+                devisFile
+            };
+
+            // Save to localStorage
+            let achatRequests = JSON.parse(localStorage.getItem('achatRequests')) || [];
+            achatRequests.push(achatRequest);
+            localStorage.setItem('achatRequests', JSON.stringify(achatRequests));
+
+            alert('Achat request submitted successfully!');
+            document.getElementById('achatForm').reset(); // Reset the form after submission
+        });
+    </script>
+</body>
+</html>

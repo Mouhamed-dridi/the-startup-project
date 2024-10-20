@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Achat Database</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Achat Requests Database</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Service Type</th>
+                    <th scope="col">Provider</th>
+                    <th scope="col">Delay</th>
+                    <th scope="col">Quantity/Price</th>
+                    <th scope="col">Devis File</th>
+                </tr>
+            </thead>
+            <tbody id="databaseBody">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to populate the database table from localStorage
+        function populateDatabase() {
+            const databaseBody = document.getElementById('databaseBody');
+            const achatRequests = JSON.parse(localStorage.getItem('achatRequests')) || [];
+            databaseBody.innerHTML = ''; // Clear existing content
+
+            achatRequests.forEach((request, index) => {
+                const row = `
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${request.productName}</td>
+                        <td>${request.serviceType}</td>
+                        <td>${request.provider}</td>
+                        <td>${request.delay}</td>
+                        <td>${request.quantityPrice}</td>
+                        <td>${request.devisFile ? `<a href="${request.devisFile}" target="_blank">${request.devisFile}</a>` : 'No file attached'}</td>
+                    </tr>
+                `;
+                databaseBody.innerHTML += row;
+            });
+        }
+
+        // Call the function to populate the table
+        populateDatabase();
+    </script>
+</body>
+</html>

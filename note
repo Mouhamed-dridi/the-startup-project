@@ -1,0 +1,39 @@
+1. Change Product Name
+We’ll update the form and database pages for the product purchase requests to reflect the new name.
+
+2. Add Subtitle
+We’ll add subtitles to each of the cards on the home page and to the forms to give users a better understanding of each service.
+
+3. Feedback Improvements
+We'll update the feedback form to include fields for the user’s name, the service they hope to provide (HR, Finance, IT), and an option to upload attachments or send URLs.
+
+4. Auto-Count Days in HR Field
+We'll add a function to the HR form to automatically calculate the number of days requested based on the start and end dates chosen in the calendar.
+
+Let’s implement these changes step by step!
+
+RH page 
+Changing "Service Type" to "Your Department."
+Adding a new field for the type of holiday with options for "Work Day Off," "Go to Work Event," "Conference," "Deployment," "Maternity," or "Personal Staff."
+
+probleme counte days 
+
+
+To implement your requests for the Achat (Purchase) page, we will create a form that includes the following features:
+
+Delay Selection: A dropdown to choose the number of days (1, 3, urgent, after a week).
+Description Field: Replace the "Reason" field with a "Description" field placed last in the form.
+Product Details Section: A title and fields for product details (product name, quantity, price, provider).
+Two Sections: The first section for the Achat details (product details and provider), and the second section for Purchase request (product name, quantity, price, and a file upload field).
+
+Sure! Let’s create a single form that includes all the required fields in one place. The updated form will have the following fields:
+
+Product Name
+Service Type: A dropdown list that includes department names.
+Provider
+Delay: A dropdown to choose the number of days.
+Quantity
+Price
+Devis File Attachment: A field for file uploads.
+
+create randome id for ecahe demande start bey 

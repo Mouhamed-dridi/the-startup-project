@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Feedback Database</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Feedback Database</h1>
+        <h3 class="text-center">All Feedback Entries</h3>
+        <div id="feedbackList" class="mt-4">
+            <!-- Feedback entries will be displayed here -->
+        </div>
+        <button class="btn btn-danger mt-4" onclick="clearFeedback()">Clear All Feedback</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function loadFeedback() {
+            const feedbackList = document.getElementById('feedbackList');
+            feedbackList.innerHTML = ''; // Clear existing entries
+
+            // Get feedback from local storage
+            const feedbackEntries = JSON.parse(localStorage.getItem('feedbackEntries')) || [];
+
+            // Display each feedback entry
+            feedbackEntries.forEach((entry, index) => {
+                const feedbackItem = document.createElement('div');
+                feedbackItem.classList.add('card', 'mb-3');
+                feedbackItem.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">${entry.userName} - ${entry.type}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${entry.serviceTarget}</h6>
+                        <p class="card-text">${entry.feedbackText}</p>
+                    </div>
+                `;
+                feedbackList.appendChild(feedbackItem);
+            });
+        }
+
+        function clearFeedback() {
+            localStorage.removeItem('feedbackEntries'); // Clear feedback from local storage
+            loadFeedback(); // Reload feedback list
+        }
+
+        // Load feedback on page load
+        document.addEventListener('DOMContentLoaded', loadFeedback);
+    </script>
+</body>
+</html>
